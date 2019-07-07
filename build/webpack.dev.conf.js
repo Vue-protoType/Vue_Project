@@ -9,10 +9,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
-
+const express = require('express')
+const app = express()
+// var appData = require('../static/mock/good')
+// var apiRoutes = express.Router();
+// app.use(apiRoutes);
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
@@ -43,6 +46,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     }
+    // before(app) {
+    //   app.get('/goods', (req, res) => {
+    //     res.json({
+    //       errno: 0,
+    //       data: appData
+    //     })
+    //   })
+    // }
   },
   plugins: [
     new webpack.DefinePlugin({
