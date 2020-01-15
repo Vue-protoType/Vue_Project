@@ -1,6 +1,6 @@
 # store
 
-> lyh
+> Vue-protoType
 
 ## Build Setup
 
